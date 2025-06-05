@@ -62,11 +62,11 @@ print(best)
 #~~~~~~ PROBLEM 5 ~~~~~~~~
 
 # We decompose 2, 3, ... , 20 into their prime factorizations. The solution will be
-# the product p ^ alpha, over all primes in the list, where alpha is the max power
+# the product of p ^ alpha, over all primes in the list, where alpha is the max power
 # of the prime p among all the prime decompositions in the list
 
 # 2 = 2 ^ 1             8 = 2 ^ 3             14 = 2 ^ 1 * 7 ^ 1      20 = 2 ^ 2 * 5 ^ 1
-# 3 = 3 ^ 1             9 = 3 ^ 3             15 = 3 ^ 1 * 5 ^ 1
+# 3 = 3 ^ 1             9 = 3 ^ 2             15 = 3 ^ 1 * 5 ^ 1
 # 4 = 2 ^ 2             10 = 2 ^ 1 * 5 ^ 1    16 = 2 ^ 4
 # 5 = 5 ^ 1             11 = 11 ^ 1           17 = 17 ^ 1
 # 6 = 2 ^ 1 * 3 ^ 1     12 = 2 ^ 2 * 3 ^ 1    18 = 2 ^ 1 * 3 ^ 2
