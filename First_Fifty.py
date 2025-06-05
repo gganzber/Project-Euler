@@ -40,7 +40,7 @@ print(best)
 # SOLUTION:
 # 6857
 
-~~~~~~ PROBLEM 4 ~~~~~~~~
+#~~~~~~ PROBLEM 4 ~~~~~~~~
 
 def is_pal(num):
   s = str(num)
@@ -59,7 +59,7 @@ print(best)
 # SOLUTION
 # 906609
 
-~~~~~~ PROBLEM 5 ~~~~~~~~
+#~~~~~~ PROBLEM 5 ~~~~~~~~
 
 # We decompose 2, 3, ... , 20 into their prime factorizations. The solution will be
 # the product p ^ alpha, over all primes in the list, where alpha is the max power
