@@ -127,7 +127,7 @@ best = 0
 for i in range(N - 13):
   prod = 1
   for j in range(13):
-    prod *= int(s[i +j])
+    prod *= int(s[i + j])
   best = max(best, prod)
 print(best)
 
