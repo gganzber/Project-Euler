@@ -212,7 +212,7 @@ print(c[0])
 # SOLUTION:
 # 171
 
-~~~~~~ PROBLEM 20 ~~~~~~~~
+# ~~~~~~ PROBLEM 20 ~~~~~~~~
 
 # The factorial of a number num >= 0
 def fact(num):
