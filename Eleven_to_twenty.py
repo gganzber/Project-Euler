@@ -17,8 +17,8 @@ for i in range(20):
     best = max(best, a, b, c, d)
 print(best)
 
-#SOLUTION:
-#70600674
+# SOLUTION:
+# 70600674
 
 # ~~~~~~ PROBLEM 12 ~~~~~~~~
 
@@ -53,7 +53,7 @@ while num_divs(curr) < 500:
   add += 1
 print(curr)
 
-#SOLUTION:
+# SOLUTION:
 # 76576500
 
 # ~~~~~~ PROBLEM 13 ~~~~~~~~
@@ -86,7 +86,7 @@ for i in range(1, 1000000):
     best_number = i
 print(best_number)
 
-# SOLUTION
+# SOLUTION:
 # 837799
 
 # ~~~~~~ PROBLEM 15 ~~~~~~~~
