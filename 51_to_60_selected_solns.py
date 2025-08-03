@@ -46,6 +46,37 @@ for elt in prims:
 # SOLUTION:
 # 121313
 
+# ~~~~~~ PROBLEM 52 ~~~~~~~~
+
+# Returns a list of length 10, where index 0 <= i <= 9 contains the number
+# of times the digit i occurs in the number num.
+def digs(num):
+    lst = [0] * 10
+    while num > 0:
+        lst[num % 10] += 1
+        num //= 10
+    return lst
+
+# Returns True if num, 2 * num, 3 * num, 4 * num, 5 * num and 6 * num have
+# precisely the same digits, False otherwise.
+def six_digs(num):
+    lst = digs(num)
+    if lst == digs(2 * num):
+        if lst == digs(3 * num):
+            if lst == digs(4 * num):
+                if lst == digs(5 * num):
+                    if lst == digs(6 * num):
+                        return True
+    return False
+
+curr = 1
+while six_digs(curr) == False:
+    curr += 1
+print(curr)
+
+# SOLUTION:
+# 142857
+
 # ~~~~~~ PROBLEM 53 ~~~~~~~~
 
 def rising_fact(a, b):
