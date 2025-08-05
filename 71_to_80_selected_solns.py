@@ -195,7 +195,7 @@ for i in range(2, 101):
             table[i][j] = total
 
 # table[i][i] will represent the number of ways to write the number i
-# as a sum of any prime number, including itself it is prime.
+# as a sum of any prime number, including itself if it is prime.
 for i in range(101):
     if table[i][i] > 5000:
         print(i)
