@@ -48,6 +48,52 @@ print(total)
 # SOLUTION:
 # 49
 
+# ~~~~~~ PROBLEM 64 ~~~~~~~~
+
+from math import sqrt
+# Returns the numerator and denominator a, b of the fraction (integer part + (sqrt(sq) - a) / b)
+# of the reciprocated fraction (denom / (sqrt(sq) - num)). We write "num" to denote starting numerator
+# and "denom" to denote starting denominator.
+def flip(sq, num, denom):
+    new_denom = (sq - num ** 2) // denom
+
+    int_part = int((sqrt(sq) + num) / new_denom)
+
+    new_num = (int_part * new_denom) - num
+
+    return (new_num, new_denom)
+
+# Returns the period length of an irrational square root sqrt(sq) for sq a non-square integer
+def period(sq):
+    seen = set()
+
+    num = int(sqrt(sq))
+    denom = 1
+
+    # we continue to compute the continued fraction sqrt(sq) until we
+    # reach a (numerator, denominator) pair already seen, which will create a loop
+    while (num, denom) not in seen:
+        seen.add((num, denom))
+        num, denom = flip(sq, num, denom)
+
+    return len(seen)
+
+# The set of squares below 10000
+sqrs = set()
+for i in range(1, int(sqrt(10000)) + 1):
+    sqrs.add(i * i)
+
+total = 0
+for i in range(1, 10000 + 1):
+    if i in sqrs:
+        continue
+    if period(i) % 2 == 1:
+        total += 1
+print(total)
+
+# SOLUTION:
+# 1322
+
 # ~~~~~~ PROBLEM 65 ~~~~~~~~
 
 coeffs = [2, 1, 2]
