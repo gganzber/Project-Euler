@@ -121,6 +121,53 @@ print(total)
 # SOLUTION:
 # 402
 
+# ~~~~~~ PROBLEM 75 ~~~~~~~~
+
+from math import sqrt
+prim_pythag = set()
+
+# Use Euclid's formula to generate all primitive Pythagorean triples whose sum doesn't exceed 1500000.
+# Since we don't insist gcd(m, n) = 1, we'll generate some non-primitive triples too.
+for n in range(1, int(sqrt(1500000))):
+    for m in range(n + 1, int(sqrt(1500000))):
+        a, b = n ** 2, m ** 2
+        if (b - a + 2 * m * n + b + a) > 1500000:
+            continue
+        if b - a < 2 * m * n:
+            prim_pythag.add((b - a, 2 * m * n, a + b))
+        else:
+            prim_pythag.add((2 * m * n, b - a, a + b))
+
+l = list(prim_pythag)
+l.sort()
+
+# Add all non-primitive Pythagorean triples whose sum doesn't exceed 1500000 to prim_pythag.
+for elt in l:
+    A, B, C = elt[0], elt[1], elt[2]
+    x, y, z = 2 * A, 2 * B, 2 * C
+    while x + y + z < 1500000:
+        prim_pythag.add((x, y, z))
+        x, y, z = x + A, y + B, z + C
+
+l2 = list(prim_pythag)
+l2.sort()
+
+# lst[i] will give the number of distinct Pythagorean triples in prim_pythag whose sum equals i.
+lst = [0] * (1500000 + 1)
+
+for elt in l2:
+    lst[sum(elt)] += 1
+
+total = 0
+
+for elt in lst:
+    if elt == 1:
+        total += 1
+print(total)
+
+# SOLUTION:
+# 161667
+
 # ~~~~~~ PROBLEM 76 ~~~~~~~~
 
 counts = [[0] * 101 for _ in range(101)]
