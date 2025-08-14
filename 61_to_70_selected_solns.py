@@ -1,3 +1,113 @@
+# ~~~~~~ PROBLEM 61 ~~~~~~~~
+
+def tr(n):
+    return (n * (n + 1)) // 2
+
+def sq(n):
+    return n * n
+
+def pt(n):
+    return (n * (3 * n - 1)) // 2
+
+def hx(n):
+    return n * (2 * n - 1)
+
+def ht(n):
+    return (n * (5 * n - 3)) // 2
+
+def ot(n):
+    return n * (3 * n - 2)
+
+lst = [[], [], [], [], [], []]
+
+x = 1
+
+while tr(x) < 10000:
+    a, b, c, d, e, f = tr(x), sq(x), pt(x), hx(x), ht(x), ot(x)
+
+    l = [a, b, c, d, e, f]
+    for i in range(6):
+        if 1000 <= l[i] and l[i] < 10000:
+            lst[i].append(l[i])
+    x += 1
+
+from collections import defaultdict
+
+tr_starts = defaultdict(list)
+sq_starts = defaultdict(list)
+pt_starts = defaultdict(list)
+hx_starts = defaultdict(list)
+ht_starts = defaultdict(list)
+ot_starts = defaultdict(list)
+
+starts = [tr_starts, sq_starts, pt_starts, hx_starts, ht_starts, ot_starts]
+
+for i in range(6):
+    elt = lst[i]
+    for num in elt:
+        s = str(num)
+        starts[i][s[:2]].append(num)
+
+import itertools
+
+# Since the order of terms could come from any permutation of collections of numbers, we can start
+# with an octogonal number, without loss of generality (by cyclical property of the solution), and permute the remaining first five lists in starts.
+ind_lst = [0, 1, 2, 3, 4]
+perms = list(itertools.permutations(ind_lst))
+
+for elt in new_lst[-1]:
+    s = str(elt)
+    start, end = s[:2], s[2:]
+    for l in perms:
+        i1, i2, i3, i4, i5 = l[0], l[1], l[2], l[3], l[4]
+
+        if len(starts[i1][end]) == 0:
+            break
+        for elt2 in starts[i1][end]:
+            s2 = str(elt2)
+            end2 = s2[2:]
+
+            if len(starts[i2][end2]) == 0:
+                break
+            for elt3 in starts[i2][end2]:
+                s3 = str(elt3)
+                end3 = s3[2:]
+
+                if len(starts[i3][end3]) == 0:
+                    break
+
+                for elt4 in starts[i3][end3]:
+                    s4 = str(elt4)
+                    end4 = s4[2:]
+
+                    if len(starts[i4][end4]) == 0:
+                        break
+
+                    for elt5 in starts[i4][end4]:
+                        s5 = str(elt5)
+                        end5 = s5[2:]
+
+                        if len(starts[i5][end5]) == 0:
+                            break
+
+                        for elt6 in starts[i5][end5]:
+                            s6 = str(elt6)
+                            end6 = s6[2:]
+
+                            if len(starts[-1][end6]) == 0:
+                                break
+
+                            for elt7 in starts[-1][end6]:
+                                if elt7 == elt:
+                                    print(elt7, elt2, elt3, elt4, elt5, elt6)
+                                    
+# This prints the unique solution:
+# 1281 8128 2882 8256 5625 2512
+# Their sum is:
+
+# SOLUTION:
+# 28684
+
 # ~~~~~~ PROBLEM 62 ~~~~~~~~
 
 from collections import Counter
