@@ -28,7 +28,7 @@ print(walk(0, 0))
 # save the 80 x 80 list of lists of integers as grid
 from collections import deque
 
-# best[i][j] will store the minimal value path sum from some node indexed k,0 the grid to the node indexed i,j
+# best[i][j] will store the minimal value path sum from some node indexed k,0 in the grid to the node indexed i,j
 best = [[10 ** 20] * 80 for _ in range(80)]
 for i in range(80):
     best[i][0] = grid[i][0]
