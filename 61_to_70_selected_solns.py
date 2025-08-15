@@ -1,23 +1,30 @@
 # ~~~~~~ PROBLEM 61 ~~~~~~~~
 
+# Returns the nth triangle number
 def tr(n):
     return (n * (n + 1)) // 2
 
+# Returns the nth square number
 def sq(n):
     return n * n
 
+# Returns the nth pentagonal number
 def pt(n):
     return (n * (3 * n - 1)) // 2
 
+# Returns the nth hexagonal number
 def hx(n):
     return n * (2 * n - 1)
 
+# Returns the nth heptagonal number
 def ht(n):
     return (n * (5 * n - 3)) // 2
 
+# Returns the nth octagonal number
 def ot(n):
     return n * (3 * n - 2)
 
+# lst[0] will be the list of all triangle numbers with 4 digits, lst[1] will be the list of all square numbers with 4 digits, etc.
 lst = [[], [], [], [], [], []]
 
 x = 1
@@ -40,6 +47,8 @@ hx_starts = defaultdict(list)
 ht_starts = defaultdict(list)
 ot_starts = defaultdict(list)
 
+# starts[i] will contain the dictionary whose keys are the strings of first two starting digits of a number from lst[i]
+# and whose values are the list of numbers in lst[i] that start with those two particular digits.
 starts = [tr_starts, sq_starts, pt_starts, hx_starts, ht_starts, ot_starts]
 
 for i in range(6):
@@ -50,7 +59,7 @@ for i in range(6):
 
 import itertools
 
-# Since the order of terms could come from any permutation of collections of numbers, we can start
+# Since the order of terms could come from any permutation of the six collections of numbers, we can start
 # with an octogonal number, without loss of generality (by cyclical property of the solution), and permute the remaining first five lists in starts.
 ind_lst = [0, 1, 2, 3, 4]
 perms = list(itertools.permutations(ind_lst))
