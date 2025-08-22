@@ -121,7 +121,7 @@ for elt in new_lst[-1]:
 
 from collections import Counter
 
-# return a tuple, where index i counts the number of the digit 0 <= i <= 9 in a number num
+# return a tuple, where index i counts the number of occurrences the digit 0 <= i <= 9 in an integer num
 def tup_dig(num):
     lst = [0] * 10
     s = str(num)
